@@ -145,19 +145,24 @@
     
 *Пока писал предыдущий пункт приходил автовакуум:
 
-   lesson8=# SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::float "ratio%", last_autovacuum FROM pg_stat_user_TABLEs WHERE relname = 'les';
+
+    lesson8=# SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::float "ratio%", last_autovacuum FROM pg_stat_user_TABLEs WHERE relname = 'les';
     relname | n_live_tup | n_dead_tup | ratio% |        last_autovacuum        
    ---------+------------+------------+--------+-------------------------------
     les     |    1000000 |          0 |      0 | 2024-01-14 17:55:53.904036+00
    (1 row)
 
+
 *Если пройти еще один раз апдейтом, нечищенная таблица выглядит так: 
+
+
 
    lesson8=# SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::float "ratio%", last_autovacuum FROM pg_stat_user_TABLEs WHERE relname = 'les';
     relname | n_live_tup | n_dead_tup | ratio% |        last_autovacuum        
    ---------+------------+------------+--------+-------------------------------
     les     |    1000000 |    1000000 |     99 | 2024-01-14 17:55:53.904036+00
    (1 row)
+
 
 Подождать некоторое время, проверяя, пришел ли автовакуум
     
