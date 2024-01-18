@@ -1,6 +1,8 @@
 ДЗ WAL
 
 Описание/Пошаговая инструкция выполнения домашнего задания:
+
+
     postgres=# show checkpoint_timeout;
      checkpoint_timeout 
     --------------------
